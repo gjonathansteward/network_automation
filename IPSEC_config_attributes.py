@@ -1,8 +1,16 @@
 #!/usr/bin/env python
 
+Import argparse
 import paramiko
 import time
 import re
+
+# Parse Args (Results in the script being executed like "python scriptname.py -i 192.168.1.1")
+parser = argparse.ArgumentParser() #Set up Parser
+host_help = "Enter the host ip address" #Help text shown on CL when -h
+parser.add_argument("-i", "--ipaddress", help=host_help, dest='host_ip', type=int) #Actual parser rule see https://docs.python.org/2/howto/argparse.html
+input_args = parser.parse_args() #Actually parse the input to a varable you can reference
+host = input_args.host_ip
 
 # Variables
 host = MYDEVICEHOSTNAME = '1.1.1.1'
